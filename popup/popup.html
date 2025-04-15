@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email Productivity assistant</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="popup-additional.css">
+  </head>
+  <body>
+    <div class="popup-container">
+      <header class="popup-header">
+        <div class="logo-container">
+          <img src="../icons/icon48.png" alt="Email Productivity assistant Logo" class="logo">
+          <h1>Email Productivity assistant</h1>
+        </div>
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-count" id="grammar-count">0</span>
+            <span class="stat-label grammar">Grammar</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-count" id="clarity-count">0</span>
+            <span class="stat-label clarity">Clarity</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-count" id="engagement-count">0</span>
+            <span class="stat-label engagement">Engagement</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-count" id="delivery-count">0</span>
+            <span class="stat-label delivery">Delivery</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="tab-container">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="check">Check Text</button>
+          <button class="tab-btn" data-tab="improve">Improve Writing</button>
+        </div>
+        
+        <div class="tab-content">
+          <div class="tab-panel active" id="check-panel">
+            <textarea style="height: 180px; width: 100%;" id="check-input" placeholder="Paste your text here to check for grammar, clarity, engagement, and tone issues..."></textarea>
+            <div class="action-container">
+              <button id="check-btn" class="primary-btn">Check Text</button>
+              <div id="offline-toggle-container" class="offline-toggle">
+                <input type="checkbox" id="offline-mode-toggle">
+                <label for="offline-mode-toggle">Offline Mode (Basic Checks Only)</label>
+              </div>
+            </div>
+            <div id="check-results" class="results-container"></div>
+          </div>
+          
+          <div class="tab-panel" id="improve-panel">
+            <textarea style="height: 180px; width: 100%;" id="improve-input" placeholder="Paste your text here to get suggestions for improving your writing..."></textarea>
+            <div class="improve-options">
+              <select id="improve-type">
+                <option value="professional">Professional</option>
+                <option value="casual">Casual</option>
+                <option value="confident">Confident</option>
+                <option value="friendly">Friendly</option>
+              </select>
+              <button id="improve-btn" class="primary-btn">Improve Writing</button>
+            </div>
+            <div id="improve-results" class="results-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="popup-footer">
+        <button id="settings-btn" class="secondary-btn">Settings</button>
+        <div class="api-status" id="api-status">
+          <span class="status-dot"></span>
+          <span class="status-text">API Key: </span>
+          <span id="api-status-text">Not Set</span>
+        </div>
+      </footer>
+      
+      <div id="rate-limit-indicator" class="rate-limit-indicator">
+        <div class="dot green"></div>
+        <span>API Requests: <span id="request-count">0</span>/<span id="request-limit">3</span> per minute</span>
+      </div>
+    </div>
+    
+    <script src="popup.js"></script>
+  </body>
+</html>

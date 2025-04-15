@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email Productivity assistant Settings</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      
+      .logo {
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+      }
+      
+      h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1a73e8;
+        margin: 0;
+      }
+      
+      .settings-container {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+      }
+      
+      .settings-section {
+        margin-bottom: 24px;
+      }
+      
+      h2 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 16px;
+        color: #333;
+      }
+      
+      .form-group {
+        margin-bottom: 16px;
+      }
+      
+      label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      
+      input[type="text"], 
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: inherit;
+      }
+      
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      
+      .checkbox-group label {
+        margin-bottom: 0;
+        margin-left: 8px;
+        font-weight: normal;
+      }
+      
+      button {
+        padding: 10px 16px;
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      
+      button:hover {
+        background-color: #1669d9;
+      }
+      
+      .status-message {
+        margin-top: 16px;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      
+      .success {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+      }
+      
+      .error {
+        background-color: #ffebee;
+        color: #c62828;
+      }
+      
+      .info-text {
+        font-size: 13px;
+        color: #666;
+        margin-top: 8px;
+      }
+      
+      .divider {
+        height: 1px;
+        background-color: #eee;
+        margin: 24px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="icons/icon48.png" alt="Email Productivity assistant Logo" class="logo">
+      <h1>Email Productivity assistant Settings</h1>
+    </div>
+    
+    <div class="settings-container">
+      <div class="settings-section">
+        <h2>API Configuration</h2>
+        <div class="form-group">
+          <label for="api-key">OpenAI API Key</label>
+          <input type="password" id="api-key" placeholder="sk-..." autocomplete="off">
+          <p class="info-text">Your API key is stored locally and is only used to communicate with the OpenAI API.</p>
+        </div>
+        <button id="save-api-key">Save API Key</button>
+        <div id="api-status" class="status-message" style="display: none;"></div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="settings-section">
+        <h2>Suggestion Settings</h2>
+        <div class="form-group">
+          <div class="checkbox-group">
+            <input type="checkbox" id="grammar-check" checked>
+            <label for="grammar-check">Grammar & Spelling</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="clarity-check" checked>
+            <label for="clarity-check">Clarity Improvements</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="engagement-check" checked>
+            <label for="engagement-check">Engagement Suggestions</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="delivery-check" checked>
+            <label for="delivery-check">Tone & Delivery</label>
+          </div>
+        </div>
+        <button id="save-settings">Save Settings</button>
+        <div id="settings-status" class="status-message" style="display: none;"></div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="settings-section">
+        <h2>About Email Productivity assistant</h2>
+        <p>Email Productivity assistant is a real-time grammar and writing assistant that provides suggestions as you type, similar to Grammarly.</p>
+        <p>Version: 1.0</p>
+      </div>
+    </div>
+    
+    <script src="options.js"></script>
+  </body>
+</html>
